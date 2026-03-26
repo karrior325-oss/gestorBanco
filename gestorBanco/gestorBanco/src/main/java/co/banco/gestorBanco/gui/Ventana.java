@@ -26,53 +26,65 @@ public class Ventana extends JFrame {
         lIdentificacion.setBounds(20, 30, 150, 20);
         add(lIdentificacion);
 
-        JLabel lNombre = new JLabel("Nombre Cliente");
-        lNombre.setBounds(20, 60, 150, 20);
-        add(lNombre);
-
-        JLabel lTipo = new JLabel("Tipo Cuenta");
-        lTipo.setBounds(20, 100, 150, 20);
-        add(lTipo);
-
-        JLabel lNumero = new JLabel("Número cuenta");
-        lNumero.setBounds(20, 140, 150, 20);
-        add(lNumero);
-
-        JLabel lSaldo = new JLabel("Saldo Inicial");
-        lSaldo.setBounds(20, 170, 150, 20);
-        add(lSaldo);
-
-        // Campos de texto
         tIdentificacion = new JTextField();
         tIdentificacion.setBounds(180, 30, 150, 20);
         add(tIdentificacion);
+
+
+        //nombre cliente
+        JLabel lNombre = new JLabel("Nombre Cliente");
+        lNombre.setBounds(20, 60, 150, 20);
+        add(lNombre);
 
         tNombre = new JTextField();
         tNombre.setBounds(180, 60, 150, 20);
         add(tNombre);
 
+
+        //tipo cuenta
+        JLabel lTipo = new JLabel("Tipo Cuenta");
+        lTipo.setBounds(20, 100, 150, 20);
+        add(lTipo);
+
+        //num cuenta
+        JLabel lNumero = new JLabel("Número cuenta");
+        lNumero.setBounds(20, 140, 150, 20);
+        add(lNumero);
+
         tNumeroCuenta = new JTextField();
         tNumeroCuenta.setBounds(180, 140, 150, 20);
         add(tNumeroCuenta);
+
+
+        //saldo inicial
+        JLabel lSaldo = new JLabel("Saldo Inicial");
+        lSaldo.setBounds(20, 170, 150, 20);
+        add(lSaldo);
 
         tSaldo = new JTextField();
         tSaldo.setBounds(180, 170, 150, 20);
         add(tSaldo);
 
-        // Radio buttons
+
+
+
+        // BOTONEEES ahorroos y corriente
         rbAhorros = new JRadioButton("Ahorros");
         rbAhorros.setBounds(180, 100, 80, 20);
 
-        rbCorriente = new JRadioButton("Corriente");
-        rbCorriente.setBounds(260, 100, 100, 20);
-
-        // Agrupar (solo uno puede seleccionarse)
         ButtonGroup grupo = new ButtonGroup();
         grupo.add(rbAhorros);
         grupo.add(rbCorriente);
 
+
+
+        rbCorriente = new JRadioButton("Corriente");
+        rbCorriente.setBounds(260, 100, 100, 20);
+
         add(rbAhorros);
         add(rbCorriente);
+
+
 
         // Botón
         btnAlmacenar = new JButton("Almacenar");
