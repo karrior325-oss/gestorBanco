@@ -1,5 +1,10 @@
 package co.banco.gestorBanco.gui;
 
+import co.banco.gestorBanco.dto.Cliente;
+import co.banco.gestorBanco.dto.Cuenta;
+import co.banco.gestorBanco.dto.CuentaAhorros;
+import co.banco.gestorBanco.dto.CuentaCorriente;
+import co.banco.gestorBanco.permanencia.Permanencia;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -15,7 +20,7 @@ public class Ventana extends JFrame {
     private JButton btnAlmacenar;
 
     public Ventana() {
-        setTitle("Banco IO");
+        setTitle("Bancooooo");
         setSize(400, 300);
         setLocationRelativeTo(null); // centrar
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,6 +95,42 @@ public class Ventana extends JFrame {
         btnAlmacenar = new JButton("Almacenar");
         btnAlmacenar.setBounds(230, 210, 120, 30);
         add(btnAlmacenar);
+
+        btnAlmacenar.addActionListener(e -> {
+
+            String id = tIdentificacion.getText();
+            String nombre = tNombre.getText();
+            String numero = tNumeroCuenta.getText();
+            double saldo = Double.parseDouble(tSaldo.getText());
+
+            Cliente cliente = new Cliente(id, nombre);
+
+            Cuenta cuenta;
+
+            String tipoCuenta;
+            if (rbAhorros.isSelected()) {
+                cuenta = new CuentaAhorros(numero, saldo, cliente);
+                tipoCuenta = "Ahorros";
+            } else {
+                cuenta = new CuentaCorriente(numero, saldo, cliente);
+                tipoCuenta = "Corriente";
+            }
+
+            // Guardar (puedes dejarlo o quitarlo)
+            Permanencia gestor = new Permanencia();
+            gestor.guardarCuenta(cuenta);
+
+            // 🔥 MENSAJE EMERGENTE
+            JOptionPane.showMessageDialog(this,
+                    "Cuenta guardada exitosamente\n\n" +
+                            "Cliente: " + nombre + "\n" +
+                            "Identificación: " + id + "\n" +
+                            "Tipo Cuenta: " + tipoCuenta + "\n" +
+                            "Número: " + numero + "\n" +
+                            "Saldo: " + saldo
+            );
+
+        });
     }
 }
 
